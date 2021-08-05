@@ -13,6 +13,12 @@ export const ScoreStyled = styled.div`
     font-weight: bold;
     letter-spacing: 1px;
   }
+
+  .user {
+      font-size: 10px;
+      margin-bottom: 5px;
+  }
+
   p {
     color: #565468;
     font-size: 40px;

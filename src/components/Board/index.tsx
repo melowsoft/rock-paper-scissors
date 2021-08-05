@@ -1,10 +1,8 @@
-import React, { useState, useContext } from "react";
-
-import { ScoreContext } from "../App";
+import React, { useState } from "react";
 import { WhiteButton } from "../Button/styles";
-
 import { BoardStyled } from "./styles";
 import { Weapon } from "../Weapon";
+import {useActions} from "../../hooks/useAction"
 
 const elements = ["paper", "scissors", "rock", "lizard", "spock"];
 
@@ -14,12 +12,11 @@ interface Props {
 }
 
 export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
-  // const [score, setScore] = useState(0)
-  const { score, setScore } = useContext(ScoreContext);
+  const {updateScores} = useActions()
   const [results, setResults] = useState("");
   const [housePick, setHousePick] = useState("default");
-
   const [pick, setPick] = useState("");
+
   function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min)) + min;
   }
@@ -36,16 +33,16 @@ export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
       }, 2000);
     });
   }
+
   async function onClick(name: string) {
     setPlaying(true);
     setPick(name);
     const house: any = await launchHousePick();
     const results: any = playWithIA(name, house);
+    updateScores(results);
     setResults(results);
-    if (results === "win") {
-      setScore(score + 1);
-    }
   }
+
   function playWithIA(pick: any, housePick: any) {
     if (housePick === pick) {
       return "draw";
@@ -63,7 +60,9 @@ export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
       if (housePick === "spock") {
         return "win";
       }
+
     }
+
     if (pick === "scissors") {
       if (housePick === "paper") {
         return "win";

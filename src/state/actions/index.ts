@@ -1,18 +1,14 @@
 import { ActionType } from "../action-types"
 
-interface SearchRepositoriesAction {
-  type: ActionType.SEARCH_REPOSITORIES;
+interface GetScoresAction {
+  type: ActionType.GET_SCORES;
 }
-interface SearchRepositoriesSuccessAction {
-  type: ActionType.SEARCH_REPOSITORIES_SUCCESS;
-  payload: string[];
-}
-interface SearchRepositoriesErrorAction {
-  type: ActionType.SEARCH_REPOSITORIES_ERROR;
-  payload: string;
+interface UpdateScoresAction {
+  type: ActionType.UPDATE_SCORES;
+  payload: string
 }
 
+
 export type Action =   
-| SearchRepositoriesAction 
-| SearchRepositoriesSuccessAction 
-| SearchRepositoriesErrorAction
+| GetScoresAction 
+| UpdateScoresAction 

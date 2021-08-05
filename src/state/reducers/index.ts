@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import  repositoriesReducer from './repositoriesReducers'
+import  scoreBoardReducer from './scoreBoardReducer'
 
 const reducers = combineReducers({
-  repositories: repositoriesReducer
+  scores: scoreBoardReducer
 });
 
 export default reducers;
