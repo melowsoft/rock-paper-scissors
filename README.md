@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is a extended rock paper scissors game.
+This is an extended rock paper scissors game.
 
 ## Instructions
 
@@ -57,8 +57,8 @@ You will also see any lint errors in the console.
 - Typescript
 - Redux
 
-
-- To run test:
+### Testing the App
+To run test:
 
 ```bash
   npm run test
