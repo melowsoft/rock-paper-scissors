@@ -55,9 +55,14 @@ export const Weapon: React.FC<Props> = ({ name = 'default', onClick, isShadowAni
   }
   const color = colors[name]
   return (
-    <WeaponStyled color={color} onClick={handleClick} name={name} isShadowAnimated={isShadowAnimated} playing={playing}>
+    <WeaponStyled 
+    color={color} 
+    onClick={handleClick} 
+    name={name} 
+    isShadowAnimated={isShadowAnimated} 
+    playing={playing} data-testid="weapon-id">
       <div className="box">
-        <img src={color.icon} alt="" />
+        <img src={color.icon} alt="weapon-icon" />
       </div>
     </WeaponStyled>
   )

@@ -4,7 +4,7 @@ import {ButtonStyled} from "./styles"
 
 const Button: React.FC = ({ children, ...props }) => {
   return (
-    <ButtonStyled {...props}>
+    <ButtonStyled {...props} data-testid="button-id">
       {children}
     </ButtonStyled>
   )

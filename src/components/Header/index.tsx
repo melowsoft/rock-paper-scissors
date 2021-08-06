@@ -8,11 +8,8 @@ function Header() {
   const { scores } = useTypedSelector((state) => state.scores);
 
   return (
-    <HeaderStyled>
+    <HeaderStyled data-testid="header-id">
       <Score score={scores.wins} user="Player"/>
-      {/* <h1>
-        Rock <br /> Paper <br /> Scissors
-      </h1> */}
       <Score score={scores.games} user="Total" label="Rounds"/>
       <Score score={scores.draws} user="Total" label="Draws"/>
       <Score score={scores.loss} user="House"/>

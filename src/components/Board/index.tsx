@@ -127,7 +127,7 @@ export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
     setResults("");
   }
   return (
-    <BoardStyled playing={playing} results={results !== ""}>
+    <BoardStyled data-testid="board-id" playing={playing} results={results !== "" ? 0 : 1}>
       {!playing ? (
         weapons.map(({name, id}: WeaponType) => (
           <Weapon key={id} name={name} onClick={onClick} />

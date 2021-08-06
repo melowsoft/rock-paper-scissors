@@ -23,7 +23,7 @@ const App = () => {
   }, [])
 
   return (
-      <AppStyled>
+      <AppStyled data-testid="app-main">
         <Wrapper>
           <div className="app-content">
             <Header />

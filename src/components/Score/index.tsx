@@ -11,7 +11,7 @@ interface Props {
 export const Score: React.FC<Props> = ({score, user, label}: Props) => {
 //const { score } = useContext(ScoreContext)
   return (
-    <ScoreStyled>
+    <ScoreStyled data-testid="score-id">
         <p className="user">{user}</p>
       <small>{label ? label: 'Score'}</small>
       <p>{score || 0}</p>

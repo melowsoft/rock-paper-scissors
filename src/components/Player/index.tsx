@@ -25,7 +25,7 @@ export const Player: React.FC<Props> = ({
   }
 
     return (
-            <Wrapper position={position}>
+            <Wrapper position={position} data-testid="player-id">
               <div className="user-score">
                 <div className="win">Win</div>
                 <div className="win-number">{win || 0}</div>

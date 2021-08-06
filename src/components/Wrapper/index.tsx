@@ -8,7 +8,7 @@ interface Props {
 
 export const Wrapper: React.FC<Props> = ({ children }: Props) => {
   return (
-    <WrapperStyled>
+    <WrapperStyled data-testid="wrapper-id">
       {children}
     </WrapperStyled>
   )
