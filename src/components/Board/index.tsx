@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { WhiteButton } from "../Button/styles";
 import { BoardStyled } from "./styles";
 import { Weapon } from "../Weapon";
-import {useActions} from "../../hooks/useAction"
+import { Weapon as WeaponType } from "../../state/interface";
+import { useActions } from "../../hooks/useAction";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const elements = ["paper", "scissors", "rock", "lizard", "spock"];
 
@@ -12,7 +14,8 @@ interface Props {
 }
 
 export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
-  const {updateScores} = useActions()
+  const { updateScores } = useActions();
+  const { weapons } = useTypedSelector((state) => state.weapons);
   const [results, setResults] = useState("");
   const [housePick, setHousePick] = useState("default");
   const [pick, setPick] = useState("");
@@ -60,7 +63,6 @@ export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
       if (housePick === "spock") {
         return "win";
       }
-
     }
 
     if (pick === "scissors") {
@@ -126,15 +128,10 @@ export const Board: React.FC<Props> = ({ playing, setPlaying }: Props) => {
   }
   return (
     <BoardStyled playing={playing} results={results !== ""}>
-      {/* <span className="line"></span> */}
       {!playing ? (
-        <>
-          <Weapon name="paper" onClick={onClick} />
-          <Weapon name="scissors" onClick={onClick} />
-          <Weapon name="rock" onClick={onClick} />
-          <Weapon name="lizard" onClick={onClick} />
-          <Weapon name="spock" onClick={onClick} />
-        </>
+        weapons.map(({name, id}: WeaponType) => (
+          <Weapon key={id} name={name} onClick={onClick} />
+        ))
       ) : (
         <>
           <div className="in-game">

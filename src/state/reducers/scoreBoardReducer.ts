@@ -14,7 +14,6 @@ const reducer = (state: ScoreBoardState = initialState, action: Action
      switch (action.type) {
         case ActionType.UPDATE_SCORES:
           const {scores} = state
-          console.log(action.payload, "in reducer")
           let gamesIncrement = scores.games + 1
           switch(action.payload){
              case 'win':

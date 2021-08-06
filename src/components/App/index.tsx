@@ -1,4 +1,4 @@
-import {useState, createContext, useEffect} from "react"
+import {useState, useEffect} from "react"
 import Header from "../Header";
 import { Wrapper } from "../Wrapper";
 import UserAvatar from "../../assets/images/boy.svg"
@@ -11,15 +11,13 @@ import {AppStyled} from "./styles"
 import { Board } from "../Board";
 import { Player } from "../Player";
 
-export const ScoreContext = createContext<any>({score: 0, setScore: () => console.log("")})
-
 const App = () => {
   const {scores} = useTypedSelector(state => state.scores)
-  const {getScores} = useActions()
-  const [score, setScore] = useState(0)
+  const {getScores, fetchWeapons} = useActions()
   const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
+    fetchWeapons()
     getScores()
     
   }, [])
