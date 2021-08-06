@@ -33,7 +33,7 @@ To run the app locally
 - Install all dependencies in project directory with:
 
 ```bash
-  npm install
+  yarn install
 ```
 
 
@@ -42,7 +42,7 @@ To run the app locally
 - Finally to start the app with run:
 
 ```bash
-  npm start
+  yarn start
 ```
 
 Runs the app in the development mode.\
@@ -61,7 +61,7 @@ You will also see any lint errors in the console.
 To run test:
 
 ```bash
-  npm run test
+  yarn run test
 ```
 
 
